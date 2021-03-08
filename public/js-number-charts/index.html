@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.bipch.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":270,"display":"always","padding":12,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JavaScrip 实现将阿拉伯数字转换为中文读法可以使用对需要处理的数据循环监测的方式处理，在开发过程中有可能遇到，这里简单记录下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数字转中文">
+<meta property="og:url" content="https://www.bipch.cn/js-number-charts/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="JavaScrip 实现将阿拉伯数字转换为中文读法可以使用对需要处理的数据循环监测的方式处理，在开发过程中有可能遇到，这里简单记录下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-26T08:54:51.000Z">
+<meta property="article:modified_time" content="2021-03-07T15:38:47.792Z">
+<meta property="article:author" content="Xiaopc767d">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.bipch.cn/js-number-charts/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>JavaScript数字转中文 | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+	<a target="_blank" rel="noopener" href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.bipch.cn/js-number-charts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
+      <meta itemprop="name" content="Xiaopc767d">
+      <meta itemprop="description" content="正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript数字转中文
+        </h1>
+
+        <div class="post-meta">
+		  
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-26 16:54:51" itemprop="dateCreated datePublished" datetime="2019-07-26T16:54:51+08:00">2019-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span class="post-meta-item-text">本文字数</span>
+              998
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span class="post-meta-item-text">阅读时长 ≈ 4分钟</span>
+            </span>
+		  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>JavaScrip 实现将阿拉伯数字转换为中文读法可以使用对需要处理的数据循环监测的方式处理，在开发过程中有可能遇到，这里简单记录下。</p>
+<a id="more"></a>
+<h2 id="阿拉伯转中文"><a href="#阿拉伯转中文" class="headerlink" title="阿拉伯转中文"></a>阿拉伯转中文</h2><p>中文数字的一些特点：</p>
+<ol>
+<li>每个计数数字都跟着一个权位，权位有：十、百、千、万、亿。</li>
+<li>以“万”为小节，对应一个节权位，万以下没有节权位。</li>
+<li>每个小节内部以“十百千”为权位独立计数。</li>
+<li>“十百千”不能连续出现，而“万”和“亿”作为节权位时可以和其他权位连用，如：“二十亿”。</li>
+</ol>
+<p>中文判断是否需要添加零：</p>
+<ol>
+<li>以10000为小节，小节的结尾即使是0，也不使用零。</li>
+<li>小节内两个非0数字之间要使用“零”。</li>
+<li>当小节的“千”位是0时（即：1~999），只要不是首小节，都要补“零”。</li>
+</ol>
+<p>算法的一些说明：</p>
+<ol>
+<li>对“零”的第三个规则，把检测放在循环的最前面并默认为false，可以自然的丢弃最高小节的加零判断。</li>
+<li>单个数字转换用数组实现，var chnNumChar = [“零”,”一”,”二”,”三”,”四”,”五”,”六”,”七”,”八”,”九”]。</li>
+<li>节权位同样用数组实现，var chnUnitSection = [“”,”万”,”亿”,”万亿”,”亿亿”]。</li>
+<li>节内权位同样用数组实现，var chnUnitChar = [“”,”十”,”百”,”千”]。</li>
+</ol>
+<p>小数部分转换如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">numToChn</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> index =  num.toString().indexOf(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span>(index != -<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> str = num.toString().slice(index);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&quot;点&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;str.length;i++)&#123;</span><br><span class="line">      a += chnNumChar[<span class="built_in">parseInt</span>(str[i])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a ;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>节权位转换如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sectionToChinese</span>(<span class="params">section</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//str:用来存储转换后的中文，chnstr:最终结果，zero:是否需要补零，count:单位</span></span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">&#x27;&#x27;</span>, chnstr = <span class="string">&#x27;&#x27;</span>,zero= <span class="literal">false</span>,count=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(section &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> v = section % <span class="number">10</span>;  <span class="comment">// 对数字取余10，得到的数即为个位数</span></span><br><span class="line">    <span class="keyword">if</span>(v === <span class="number">0</span>)&#123;           <span class="comment">// 如果数字为零，则对字符串进行补零</span></span><br><span class="line">      <span class="keyword">if</span>(zero)&#123;</span><br><span class="line">        zero = <span class="literal">false</span>;        <span class="comment">// 如果遇到连续多次取余都是0，那么只需补一个零即可</span></span><br><span class="line">        chnstr = chnNumChar[v] + chnstr;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      zero = <span class="literal">true</span>;           <span class="comment">// 第一次取余之后，如果再次取余为零，则需要补零</span></span><br><span class="line">      str = chnNumChar[v];</span><br><span class="line">      str += chnUnitChar[count];</span><br><span class="line">      chnstr = str + chnstr;</span><br><span class="line">    &#125;</span><br><span class="line">    count++;</span><br><span class="line">    section = <span class="built_in">Math</span>.floor(section/<span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> chnstr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转换的主函数如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TransformToChinese</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 小数部分</span></span><br><span class="line">  <span class="keyword">var</span> a = numToChn(num);</span><br><span class="line">  <span class="comment">//舍入</span></span><br><span class="line">  num = <span class="built_in">Math</span>.floor(num);</span><br><span class="line">  <span class="comment">//用来计算单位</span></span><br><span class="line">  <span class="keyword">var</span> unitPos = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//strIns:权位转换的结果，chnStr:最终结果</span></span><br><span class="line">  <span class="keyword">var</span> strIns = <span class="string">&#x27;&#x27;</span>, chnStr = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="comment">//是否需要补零</span></span><br><span class="line">  <span class="keyword">var</span> needZero = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">if</span>(num === <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> chnNumChar[<span class="number">0</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(num &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">//取于得到最后一个节权位</span></span><br><span class="line">    <span class="keyword">var</span> section = num % <span class="number">10000</span>;</span><br><span class="line">    <span class="keyword">if</span>(needZero)&#123;</span><br><span class="line">      chnStr = chnNumChar[<span class="number">0</span>] + chnStr;</span><br><span class="line">    &#125;</span><br><span class="line">    strIns = sectionToChinese(section);</span><br><span class="line">    <span class="comment">//用来设置节权位单位，如果节权位全是0则不需要添加单位比如100000(十万)</span></span><br><span class="line">    strIns += (section !== <span class="number">0</span>) ? chnUnitSection[unitPos] : chnUnitSection[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//拼接最终结果</span></span><br><span class="line">    chnStr = strIns + chnStr;</span><br><span class="line">    <span class="comment">//用来判断是否需要进行补零</span></span><br><span class="line">    needZero = (section &lt; <span class="number">1000</span>) &amp;&amp; (section &gt; <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//删除这个节权位</span></span><br><span class="line">    num = <span class="built_in">Math</span>.floor(num / <span class="number">10000</span>);</span><br><span class="line">    unitPos++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> chnStr+a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="中文转阿拉伯"><a href="#中文转阿拉伯" class="headerlink" title="中文转阿拉伯"></a>中文转阿拉伯</h2><p>算法的一些说明：</p>
+<ol>
+<li>将中文权位转换成10的位数。</li>
+<li>对每个权位依次转换成位数并求和。</li>
+<li>零可以直接忽略即可。</li>
+</ol>
+<p>中文转阿拉伯需要下面变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义数字转换变量</span></span><br><span class="line"><span class="keyword">var</span> chnNumChar = &#123;</span><br><span class="line">  零:<span class="number">0</span>,</span><br><span class="line">  一:<span class="number">1</span>,</span><br><span class="line">  二:<span class="number">2</span>,</span><br><span class="line">  三:<span class="number">3</span>,</span><br><span class="line">  四:<span class="number">4</span>,</span><br><span class="line">  五:<span class="number">5</span>,</span><br><span class="line">  六:<span class="number">6</span>,</span><br><span class="line">  七:<span class="number">7</span>,</span><br><span class="line">  八:<span class="number">8</span>,</span><br><span class="line">  九:<span class="number">9</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//中文权位转换成10的位数及节权标志</span></span><br><span class="line"><span class="keyword">var</span> chnNameValue = &#123;</span><br><span class="line">  十:&#123;<span class="attr">value</span>:<span class="number">10</span>, <span class="attr">secUnit</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">  百:&#123;<span class="attr">value</span>:<span class="number">100</span>, <span class="attr">secUnit</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">  千:&#123;<span class="attr">value</span>:<span class="number">1000</span>, <span class="attr">secUnit</span>:<span class="literal">false</span>&#125;,</span><br><span class="line">  万:&#123;<span class="attr">value</span>:<span class="number">10000</span>, <span class="attr">secUnit</span>:<span class="literal">true</span>&#125;,</span><br><span class="line">  亿:&#123;<span class="attr">value</span>:<span class="number">100000000</span>, <span class="attr">secUnit</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转换的方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ChineseToNumber</span>(<span class="params">chnStr</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> rtn = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> section = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> number = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> secUnit = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">var</span> str = chnStr.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; str.length; i++)&#123;</span><br><span class="line">    <span class="keyword">var</span> num = chnNumChar[str[i]];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> num !== <span class="string">&#x27;undefined&#x27;</span>)&#123;</span><br><span class="line">      number = num;</span><br><span class="line">      <span class="keyword">if</span>(i === str.length - <span class="number">1</span>)&#123;</span><br><span class="line">        section += number;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> unit = chnNameValue[str[i]].value;</span><br><span class="line">      secUnit = chnNameValue[str[i]].secUnit;</span><br><span class="line">      <span class="keyword">if</span>(secUnit)&#123;</span><br><span class="line">        section = (section + number) * unit;</span><br><span class="line">        rtn += section;</span><br><span class="line">        section = <span class="number">0</span>;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        section += (number * unit);</span><br><span class="line">      &#125;</span><br><span class="line">      number = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> rtn + section;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+	  
+	  <div>
+		
+		<div class="post-end">
+    
+        <div style="text-align: center;color: #999;font-size: 14px;padding: 10px 0;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+		
+	 </div>
+	  
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/hello-page/" rel="prev" title="Welcome To My Blog">
+      <i class="fa fa-chevron-left"></i> Welcome To My Blog
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/js-currying/" rel="next" title="函数柯里化">
+      函数柯里化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%BF%E6%8B%89%E4%BC%AF%E8%BD%AC%E4%B8%AD%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">阿拉伯转中文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E8%BD%AC%E9%98%BF%E6%8B%89%E4%BC%AF"><span class="nav-number">2.</span> <span class="nav-text">中文转阿拉伯</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaopc767d"
+      src="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
+  <p class="site-author-name" itemprop="name">Xiaopc767d</p>
+  <div class="site-description" itemprop="description">正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bpc99" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bpc99" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/bapche207324@163.com" title="E-Mail → bapche207324@163.com"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+	<canvas id="evanyou"></canvas>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <!--添加运行时间-->
+<span id="sitetime"></span>
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="author" itemprop="copyrightHolder">Xiaopc767d. </span>由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+    <span>豫ICP备20013287号</span>
+</div>
+
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+      Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数
+     */
+		var t1 = Date.UTC(2020,03,14,18,12,20); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<!--
+<div class="copyright">
+	<span id="busuanzi_container_site_uv"> 
+	  本站访客数<span class="with-love"><i class="fa fa-user"></i></span><span id="busuanzi_value_site_uv"></span>人次
+	</span>
+	<span id="busuanzi_container_page_pv"> 
+	  本文总阅读量<span class="with-love"><i class="fa fa-eye"></i></span><span id="busuanzi_value_page_pv"></span>人次
+	</span>
+</div>
+-->
+
+<!--
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共51.5k字</span>
+</div>
+-->
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+<script src="/js/evanyou.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.bipch.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":270,"display":"always","padding":12,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="由于 webpack 的兴起，不少技术使用 webpack 都能很方便的进行开发，但是由于其需要过多的配置，这样便浪费很多的开发时间，于是前端便出现了一系列的 webpack 相关的脚手架，目的便是更方便的进行相关开发，而 React 作为前端非常火的技术脚手架的数量更是非同一般，这里只是简单总结下使用 create-react-app 在开发过程中经常遇到的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="create-react-app">
+<meta property="og:url" content="https://www.bipch.cn/create-react-app/index.html">
+<meta property="og:site_name" content="Blog">
+<meta property="og:description" content="由于 webpack 的兴起，不少技术使用 webpack 都能很方便的进行开发，但是由于其需要过多的配置，这样便浪费很多的开发时间，于是前端便出现了一系列的 webpack 相关的脚手架，目的便是更方便的进行相关开发，而 React 作为前端非常火的技术脚手架的数量更是非同一般，这里只是简单总结下使用 create-react-app 在开发过程中经常遇到的问题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-27T00:11:39.000Z">
+<meta property="article:modified_time" content="2021-03-02T04:33:59.609Z">
+<meta property="article:author" content="Xiaopc767d">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="脚手架">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.bipch.cn/create-react-app/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>create-react-app | Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+	<a target="_blank" rel="noopener" href="https://your-url" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.bipch.cn/create-react-app/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
+      <meta itemprop="name" content="Xiaopc767d">
+      <meta itemprop="description" content="正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          create-react-app
+        </h1>
+
+        <div class="post-meta">
+		  
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-27 08:11:39" itemprop="dateCreated datePublished" datetime="2020-08-27T08:11:39+08:00">2020-08-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span class="post-meta-item-text">本文字数</span>
+              817
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span class="post-meta-item-text">阅读时长 ≈ 3分钟</span>
+            </span>
+		  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>由于 webpack 的兴起，不少技术使用 webpack 都能很方便的进行开发，但是由于其需要过多的配置，这样便浪费很多的开发时间，于是前端便出现了一系列的 webpack 相关的脚手架，目的便是更方便的进行相关开发，而 React 作为前端非常火的技术脚手架的数量更是非同一般，这里只是简单总结下使用 create-react-app 在开发过程中经常遇到的问题。</p>
+<a id="more"></a>
+
+<h2 id="CSS-Modules"><a href="#CSS-Modules" class="headerlink" title="CSS Modules"></a>CSS Modules</h2><p>CSS Modules 允许你在不同的文件中使用相同的 CSS classname，而无需担心命名冲突。<br>例如我们 css 样式为：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.red</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认情况编写 className 为 red 即可，而使用 CSS Modules 便可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&#x27;.....css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p className=&#123;styles.red&#125;&gt;CSS Modules&lt;/p&gt;</span><br><span class="line">      &lt;p className=<span class="string">&quot;red&quot;</span>&gt;classname&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<p>最后结果 styles.red 样式为红色，而 red 样式是空的。这便是 CSS Modules 它可以完美解决 css 样式覆盖的问题。而 create-react-app 默认便是支持 CSS Modules 的，但是只能是指定格式的文件名，例如如果文件名为：<code>index.css</code>，这样 CSS Modules 是不会生效的，只能为：<code>index.module.css</code>才能生效，根据官网的提示，命名规则必须为：<code>[name].module.css</code>否则都会无效的。</p>
+<h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><p>随着前后端的分离，开发过程中跨域的情况是无法避免的，前端的请求接口如果不是在后台设置相应白名单的情况下大部分都会面临着跨域的问题，而前端解决这种问题的方式也很简单，大部分都是通过 proxy 去完成，而 React 默认情况下只能在 <code>package.json</code> 中 proxy 属性添加配置，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;proxy&quot;</span>: <span class="string">&quot;http://localhost:6060&quot;</span>,</span><br></pre></td></tr></table></figure>
+<p>但是大部分情况下，我们需要更灵活的配置，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">proxy: &#123;</span><br><span class="line">  <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">    target: <span class="string">&#x27;******&#x27;</span>,</span><br><span class="line">    ws: <span class="literal">true</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&#x27;/searchData&#x27;</span>: &#123;</span><br><span class="line">    target: <span class="string">&#x27;******&#x27;</span>,</span><br><span class="line">    ws: <span class="literal">true</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而它如果要实现这种情况只能借助一个插件<code>http-proxy-middleware</code>去完成。</p>
+<h2 id="devtool"><a href="#devtool" class="headerlink" title="devtool"></a>devtool</h2><p>主要用于判断是否生成 source map，因为文件打包之后，和原本文件有着许多的差别，而为了方便调试找出错误，需要将打包之后的文件和源文件进行管理，此时一般需要 source map，虽然它很方便我们的代码调试，但是如果我们将打包放到生产环境下，会很容易保留我们项目的源码，例如下面情况：</p>
+<p>而源码的暴露显然不符合我们的预期，所以我们要打包部署时关闭 devtool，防止源码暴露，但是 create-react-app 已经隐藏了 webpack 的配置，如需重新暴露，需要运行：<code>npm run eject</code>，但会暴露出全部配置，添加项目可阅读性，显然不是我们想要的，我们一般使用：<code>react-app-rewired</code> 或者 <code>craco</code> 去覆盖配置，但不论何种方法，我们需要覆盖 webpack devtool 配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">devtool: <span class="string">&#x27;inline-source-map&#x27;</span>, <span class="comment">// 调试代码用</span></span><br></pre></td></tr></table></figure>
+<p>覆盖为这样的值，便解决了这个问题。</p>
+
+    </div>
+
+    
+    
+    
+	  
+	  <div>
+		
+		<div class="post-end">
+    
+        <div style="text-align: center;color: #999;font-size: 14px;padding: 10px 0;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+		
+	 </div>
+	  
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
+              <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="tag"><i class="fa fa-tag"></i> 脚手架</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/dva/" rel="prev" title="dva">
+      <i class="fa fa-chevron-left"></i> dva
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/es6-let-const/" rel="next" title="let 和 const">
+      let 和 const <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Modules"><span class="nav-number">1.</span> <span class="nav-text">CSS Modules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proxy"><span class="nav-number">2.</span> <span class="nav-text">proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#devtool"><span class="nav-number">3.</span> <span class="nav-text">devtool</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaopc767d"
+      src="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
+  <p class="site-author-name" itemprop="name">Xiaopc767d</p>
+  <div class="site-description" itemprop="description">正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bpc99" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bpc99" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/bapche207324@163.com" title="E-Mail → bapche207324@163.com"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+	<canvas id="evanyou"></canvas>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        <!--添加运行时间-->
+<span id="sitetime"></span>
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="author" itemprop="copyrightHolder">Xiaopc767d. </span>由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+    <span>豫ICP备20013287号</span>
+</div>
+
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+      Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数
+     */
+		var t1 = Date.UTC(2020,03,14,18,12,20); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+<!--
+<div class="copyright">
+	<span id="busuanzi_container_site_uv"> 
+	  本站访客数<span class="with-love"><i class="fa fa-user"></i></span><span id="busuanzi_value_site_uv"></span>人次
+	</span>
+	<span id="busuanzi_container_page_pv"> 
+	  本文总阅读量<span class="with-love"><i class="fa fa-eye"></i></span><span id="busuanzi_value_page_pv"></span>人次
+	</span>
+</div>
+-->
+
+<!--
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共51.5k字</span>
+</div>
+-->
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+<script src="/js/evanyou.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

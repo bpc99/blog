@@ -63,10 +63,10 @@ ignore: null
 # 主题
 theme: next
 
-deploy:
-  type: git
-  repo: git@github.com:bpc99/hexo.git
-  branch: master
+#deploy:
+#  type: git
+#  repo: git@github.com:bpc99/hexo.git
+#  branch: master
 
 search:
   path: search.xml

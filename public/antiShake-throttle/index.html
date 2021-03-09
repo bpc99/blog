@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -79,6 +79,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -254,7 +255,7 @@
 
       
         <p>防抖和节流在web开发中属于性能优化方面的知识，实际使用频率还是很高的，比如我们有一个高频率触发事件，每次触发都会执行一次事件绑定的函数。例如我们每次移动滚动条都要触发一个函数，那么我们每稍微移动下滚动条，便会调用很多次函数，如果函数逻辑复杂很有可能出现响应速度跟不上触发频率，出现延迟，假死、卡顿或崩溃的现象。而我们可以通过下面的几种方式优化代码。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><p>实现方式：<strong>每次触发事件时设置一个延迟调用的方法，并且取消之前的延迟调用方法。</strong>这样如果短时间触发大量的同一事件，函数代码只会执行一次。<br>下面用代码实现上面逻辑，因为要一段时间之后执行某些逻辑，所以需要<code>setTineout</code>函数实现，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 防抖函数</span></span><br><span class="line"><span class="comment">* fn: 需要防抖函数</span></span><br><span class="line"><span class="comment">* delay: 防抖时间</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 计时器对象</span></span><br><span class="line">  <span class="keyword">var</span> timeout = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 每次执行都把 setTimeout 清除</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timeout); </span><br><span class="line">    <span class="comment">// 重写创建 setTimeout，主要重置 setTimeout</span></span><br><span class="line">    timeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      fn.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">    &#125;, delay);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;防抖：&#x27;</span>, <span class="built_in">Math</span>.random());&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">// 开始防抖，500 防抖时间 </span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, debounce(handle, <span class="number">500</span>));</span><br></pre></td></tr></table></figure>
 <p>简单柯里化函数滚动条滚动之后等待 500ms 之后才能触发 handle 函数，连续执行是不会触发 handle 函数。<br>虽然实现了我们需求，它的缺点也非常的明显: 如果这个事件不断地触发，其会不断取消前面的函数，重新执行，这样函数是无法进行执行的。</p>
@@ -377,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -486,7 +487,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

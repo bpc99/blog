@@ -7,7 +7,7 @@
     "serve": "hexo clean && hexo g && hexo serve"
   },
   "hexo": {
-    "version": "5.1.1"
+    "version": "5.4.0"
   },
   "dependencies": {
     "bulma-stylus": "0.8.0",
@@ -15,6 +15,7 @@
     "hexo-component-inferno": "0.6.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
+    "hexo-generator-feed": "^3.0.0",
     "hexo-generator-index-pin-top": "^0.2.2",
     "hexo-generator-json-content": "^4.2.3",
     "hexo-generator-search": "^2.4.0",

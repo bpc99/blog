@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -22,20 +22,23 @@
     var CONFIG = {"hostname":"www.bipch.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":270,"display":"always","padding":12,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Next.js 是一个轻量级的 React 服务端渲染(SSR)框架，其主要目的便是为了让 React 轻松的完成服务端的渲染，从而提升首屏打开的速度、并且更利于SEO。当然服务端渲染不是只有好处也有着许多的局限。">
+  <meta name="description" content="一款轻量级的 React 服务端渲染框架，社区 的活跃度也不错，如果需要使用 React 做一个轻量级的 SSR 类型的项目是个不错的选择(比如个人博客)，其使用起来也是非常的简便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-Next.js 介绍">
+<meta property="og:title" content="Next.js">
 <meta property="og:url" content="https://www.bipch.cn/react-next/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Next.js 是一个轻量级的 React 服务端渲染(SSR)框架，其主要目的便是为了让 React 轻松的完成服务端的渲染，从而提升首屏打开的速度、并且更利于SEO。当然服务端渲染不是只有好处也有着许多的局限。">
+<meta property="og:description" content="一款轻量级的 React 服务端渲染框架，社区 的活跃度也不错，如果需要使用 React 做一个轻量级的 SSR 类型的项目是个不错的选择(比如个人博客)，其使用起来也是非常的简便。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.bipch.cn/2021/03/09/8a7d8db3f0681.png">
+<meta property="og:image" content="https://img.bipch.cn/2021/03/09/b8edfa7b95d9f.png">
+<meta property="og:image" content="https://img.bipch.cn/2021/03/09/ac4f4b9724ae7.png">
 <meta property="article:published_time" content="2021-01-27T15:29:22.000Z">
-<meta property="article:modified_time" content="2021-03-07T12:30:21.216Z">
+<meta property="article:modified_time" content="2021-03-09T11:29:50.736Z">
 <meta property="article:author" content="Xiaopc767d">
 <meta property="article:tag" content="React">
-<meta property="article:tag" content="脚手架">
 <meta property="article:tag" content="服务端渲染">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.bipch.cn/2021/03/09/8a7d8db3f0681.png">
 
 <link rel="canonical" href="https://www.bipch.cn/react-next/">
 
@@ -50,7 +53,7 @@
   };
 </script>
 
-  <title>React-Next.js 介绍 | Blog</title>
+  <title>Next.js | Blog</title>
   
 
 
@@ -81,6 +84,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -207,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          React-Next.js 介绍
+          Next.js
         </h1>
 
         <div class="post-meta">
@@ -237,13 +241,13 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
               <span class="post-meta-item-text">本文字数</span>
-              2.8k
+              2.6k
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-              <span class="post-meta-item-text">阅读时长 ≈ 11分钟</span>
+              <span class="post-meta-item-text">阅读时长 ≈ 9分钟</span>
             </span>
 		  
         </div>
@@ -255,30 +259,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Next.js 是一个轻量级的 React 服务端渲染(SSR)框架，其主要目的便是为了让 React 轻松的完成服务端的渲染，从而提升首屏打开的速度、并且更利于SEO。当然服务端渲染不是只有好处也有着许多的局限。</p>
-<a id="more"></a>
-<h2 id="SSR"><a href="#SSR" class="headerlink" title="SSR"></a>SSR</h2><p>服务器端渲染的检查，是完全由服务器告诉客户端渲染为什么，服务器生成 html 字符串，传递给客户端，客户端经过渲染展示给用户。</p>
-<p>其优势在于：</p>
+        <p>一款轻量级的 React 服务端渲染框架，<a target="_blank" rel="noopener" href="https://github.com/vercel/next.js">社区</a> 的活跃度也不错，如果需要使用 React 做一个轻量级的 SSR 类型的项目是个不错的选择(比如个人博客)，其使用起来也是非常的简便。</p>
+<span id="more"></span>
+
+<h2 id="SSR"><a href="#SSR" class="headerlink" title="SSR"></a>SSR</h2><p>将组件或页面由服务端解析，服务端请求数据并填充得到最终的 html 字符串返回客户端。</p>
+<p>这样做优势在于：</p>
 <ol>
-<li>利于SEO：不论是 React 项目还是 Vue 等项目，界面信息都是通过客户端 JS 动态生成的，需要服务端返回相应的数据才能正确显示，但是浏览器爬虫并不会等界面完全加载之后才会抓取。而服务端渲染则是完全由服务端生成最终展示的代码，更便于爬虫抓取整个网页的信息。</li>
+<li>利于SEO：平常界面信息都是通过客户端 JS 动态拼接生成的，需要服务端返回相应的数据才能正确显示，但浏览器爬虫并不会等界面完全加载之后才会抓取。而服务端渲染则更便于爬虫抓取整个网页的信息。</li>
 <li>利于首屏渲染：因为服务端渲染完全由服务端返回客户端 HTML 字符串，客户端不需要解析 js 等文件，这样首屏的速度高于普通的方式。</li>
 </ol>
 <p>当然其也不是全是优点，缺点也非常多：</p>
 <ol>
-<li>服务器压力大：本来属于客户端的公主，现在统一交给 Node 服务端去做，如果出现高并发会对服务器造成不小负担。</li>
+<li>服务器压力大：本来属于客户端的工作，现在统一交给服务端去做，如果出现高并发会对服务器造成不小负担。</li>
 <li>开发条件受限：由于解析文件交给了服务端，所以一些代码的用法和以前有所区别。</li>
 </ol>
-<p>所以项目是选用普通方式渲染还是服务端渲染都不是一概而论的，只能根据现实条件决定，而服务端渲染中较为突出的框架便为 <a target="_blank" rel="noopener" href="https://github.com/vercel/next.js">Next.js</a> 了。</p>
-<h2 id="手动创建项目"><a href="#手动创建项目" class="headerlink" title="手动创建项目"></a>手动创建项目</h2><p>手动创建项目配置更灵活，项目初始化完成后，首先其是基于 React 的，所以要先安装 React 相关的依赖：</p>
+<h2 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h2><p>空文件下安装开发闭包插件：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add react react-dom next</span><br></pre></td></tr></table></figure>
-<p>然后修改<code>package.json</code>中的命令：</p>
+<p>修改<code>package.json</code>中的命令：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;next&quot;,</span><br><span class="line">  &quot;build&quot;: &quot; next build&quot;,</span><br><span class="line">  &quot;start&quot;: &quot;next start&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后再根目录新建<code>pages</code>文件夹，新建<code>home.jsx</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;Hello Next.js&lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Home;</span><br></pre></td></tr></table></figure>
-<p>然后执行<code>yarn dev</code>运行项目，运行成功后，直接输入：<strong><a target="_blank" rel="noopener" href="http://localhost:3000/home">http://localhost:3000/home</a></strong> 即可访问界面，不需再需要路由相关的封装，<code>page</code>下的所有文件都会自动创建路由。</p>
-<h2 id="create-next-app"><a href="#create-next-app" class="headerlink" title="create-next-app"></a>create-next-app</h2><p>除了上面手动搭建项目，还可以使用脚手架快速搭建项目，因为其能更好的帮助我们组织代码，并添加了一些项目默认配置。<br>执行命令安装脚手架：</p>
+<p>3 个命令每个都有着自己作用，后面会介绍，新建一个文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Home</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;hello world&lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Home;</span><br></pre></td></tr></table></figure>
+<p>执行<code>yarn dev</code>运行项目，运行成功后，直接输入：<strong><a target="_blank" rel="noopener" href="http://localhost:3000/home">http://localhost:3000/home</a></strong> 即可访问界面，不需再需要路由相关的封装，<code>page</code>下的所有文件都会自动创建路由。</p>
+<h2 id="create-next-app"><a href="#create-next-app" class="headerlink" title="create-next-app"></a>create-next-app</h2><p>使用脚手架初始化项目可以更好的为我们组织代码，执行命令安装：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn <span class="built_in">global</span> add create-next-app</span><br></pre></td></tr></table></figure>
-<p>安装完成后，执行下面的命令创建项目：</p>
+<p>安装完成后，直接创建即可：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-next-app project-name</span><br></pre></td></tr></table></figure>
 <p>完成后执行<code>yarn dev</code>启动，启动完成后可以看到默认界面。</p>
 <h3 id="基础架构"><a href="#基础架构" class="headerlink" title="基础架构"></a>基础架构</h3><p>项目创建完成后，默认有些项目的配置：</p>
@@ -291,59 +295,68 @@
 <li><strong>.gitignore</strong>：再向 Git 提交代码时，忽略一些文件。</li>
 </ul>
 <p>很轻便的一种前端结构，并没有太复杂的配置。</p>
-<h2 id="界面跳转"><a href="#界面跳转" class="headerlink" title="界面跳转"></a>界面跳转</h2><p>在原本的 React 中，跳转界面主要用 react-router-dom 等框架实现，但是 Next.js 并不需要在安装 react-router-dom 插件，我们跳转界面需要在 Next.js 中引入：</p>
+<h2 id="界面跳转"><a href="#界面跳转" class="headerlink" title="界面跳转"></a>界面跳转</h2><p>React 中跳转界面主要用 react-router-dom 等框架实现，但是 Next.js 并不需要在安装 react-router-dom 插件，我们跳转界面需要在 Next.js 中引入：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;(</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;Link href=<span class="string">&quot;/&quot;</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>&lt;/Link&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>这样便可以实现界面跳转了，但是 <code>&lt;Link /&gt;</code> 组件，只能接收一个组件，例如下面写法是错误的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;(</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;Link href=<span class="string">&quot;/&quot;</span>&gt;</span><br><span class="line">      &lt;a&gt;首页&lt;/a&gt;</span><br><span class="line">      &lt;a&gt;分类&lt;/a&gt;</span><br><span class="line">    &lt;/Link&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>这样是不行的，但是我们可以添加父元素便可以了。<br>当然除了组件跳转，我们也可以通过 JS 代码进行跳转：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">&#x27;next/router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;(</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;button onClick=&#123;<span class="function">()=&gt;</span>&#123;Router.push(<span class="string">&#x27;/home&#x27;</span>)&#125;&#125;&gt;home&lt;/button&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>也是可以执行一段逻辑之后再进行跳转。</p>
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>当列表数据，进入详情界面，一般都需要通过路径将关键信息传递过去，然后进行数据查询，所以项目中路径传参的形式还是很常见的，但是<strong>由于 Next 路径都是根据文件名自动生成的，所以暂时还只支持 query 形式的传递</strong>。<br>我们通常的情况下可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;(</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;Link href=<span class="string">&quot;/details?id=&quot;</span> + id&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span>&gt;</span>详情<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>&lt;/Link&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>当然 href 也可接收一个对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Link <span class="keyword">from</span> <span class="string">&#x27;next/link&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt;(</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    ...</span><br><span class="line">    &lt;Link href=&#123;&#123;<span class="attr">pathname</span>:<span class="string">&#x27;/details&#x27;</span>,<span class="attr">query</span>:&#123;<span class="attr">id</span>: id&#125;&#125;&#125;&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span>&gt;</span>详情<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>&lt;/Link&gt;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>当然通过函数式编程，使用 Router 也可以通过这种方式跳转：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getDetails</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">   Router.push(&#123;</span><br><span class="line">     pathname:<span class="string">&#x27;/details&#x27;</span>,</span><br><span class="line">     query: data</span><br><span class="line">   &#125;)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="getInitialProps"><a href="#getInitialProps" class="headerlink" title="getInitialProps"></a>getInitialProps</h2><p>Next.js 为每个组件都提供了<code>getInitialProps</code>的静态方法，我们可以在该方法中获取路径传入的数据、发送网络请求等。<br>例如通过 url 传输的数据可以通过下面方式接收并使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Detailed = <span class="function">(<span class="params">&#123;id&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">Detailed.getInitialProps = <span class="function">(<span class="params">context</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> id = context.query.id;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    id</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样通过参数可以直接获取到传输的数据，并且使用 return 可以将数据返回给组件，组件中通过 props 直接获取到数据即可完成参数的传递，并且我们还可以在该方法里面发送网络请求获取数据，比如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Detailed.getInitialProps = <span class="function">(<span class="params">context</span>) =&gt;</span> &#123;</span><br><span class="line">  fetch(&#123;<span class="attr">url</span>: <span class="string">&#x27;&#x27;</span>&#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      data: res</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样只有执行到 return 才会渲染界面，否则界面不会进行渲染，我们可以适当的为其添加 loading 界面。</p>
-<h2 id="路由钩子"><a href="#路由钩子" class="headerlink" title="路由钩子"></a>路由钩子</h2><p>Next.js 为用户封装了 六 个路由相关的钩子，当触发一定的条件后，钩子中的逻辑代码便会被执行，虽然还是不如 vue-router 中的导航守卫灵活和使用，但是比较有剩余无。</p>
-<p>钩子分别为下面的六个：</p>
-<h3 id="routeChangeStart"><a href="#routeChangeStart" class="headerlink" title="routeChangeStart"></a>routeChangeStart</h3><p>当路由发生变化时便可以监听到，使用需要对 Router 中的 events 使用 on 命令绑定钩子函数，比如我们可以这样去监听：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;routeChangeStart&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;routeChangeStart -&gt; 路由开始变化,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>路由一旦变化，便会立即执行绑定的钩子函数。</p>
-<h3 id="routerChangeComplete"><a href="#routerChangeComplete" class="headerlink" title="routerChangeComplete"></a>routerChangeComplete</h3><p>路由变化结束之后，触发的事件为 routerChangeComplete，绑定方式和前面一样，但是其实路由改变完成后才触发的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;routerChangeComplete&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;routerChangeComplete -&gt; 路由变化完成,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="beforeHistoryChange"><a href="#beforeHistoryChange" class="headerlink" title="beforeHistoryChange"></a>beforeHistoryChange</h3><p>history 是 H5 新增的 API，而 Next.js 默认便是 history 类型的 url，即路径后面没有 # 号。而该钩子便是 history 改变之前触发。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;beforeHistoryChange&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;beforeHistoryChange -&gt; history改变之前,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="routeChangeError"><a href="#routeChangeError" class="headerlink" title="routeChangeError"></a>routeChangeError</h3><p>顾名思义，当路由出现错误的时候执行的钩子函数：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;routeChangeError&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;routeChangeError -&gt; 路由错误,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="hashChangeStart"><a href="#hashChangeStart" class="headerlink" title="hashChangeStart"></a>hashChangeStart</h3><p>hashChangeStart 是针对 hash 改变之前触发的钩子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;hashChangeStart&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hashChangeStart -&gt; hash改变之前,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="hashChangeComplete"><a href="#hashChangeComplete" class="headerlink" title="hashChangeComplete"></a>hashChangeComplete</h3><p>hashChangeComplete 也是针对 hash 的特定钩子，表示 hash 方式的路由改变之后触发的钩子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> Router.events.on(<span class="string">&#x27;hashChangeComplete&#x27;</span>, <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;hashChangeComplete -&gt; hash改变之后,参数为:&#x27;</span>,...args)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="模块懒加载"><a href="#模块懒加载" class="headerlink" title="模块懒加载"></a>模块懒加载</h2><p>这一块内容便属于内容的优化，如果需要优化项目的运行和渲染速度，可以先从这方面入手。<br>Nxt.js 提供了 <code>LazyLoading</code>主要目的便是优化项目的加载，其主要提供了模块和组件的按需加载，它们在使用时会有些不同。</p>
-<h3 id="懒加载模块"><a href="#懒加载模块" class="headerlink" title="懒加载模块"></a>懒加载模块</h3><p>日常开发过程中经常在项目中添加一些其它模块，例如<code>Moment.js</code>、<code>Lodash.js</code>等，这些都是常用的模块，可以提高项目的开发速率，比如这样使用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;useState&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> _ <span class="keyword">from</span> <span class="string">&#x27;lodash‘</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">function Home</span></span><br><span class="line"><span class="string">  const [list, setList] = useState([]);</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  const uniqList = () =&gt; &#123;</span></span><br><span class="line"><span class="string">    return _.uniq(list);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">  return (</span></span><br><span class="line"><span class="string">    &lt;&gt;</span></span><br><span class="line"><span class="string">      &#123;list.map(item =&gt; (...))&#125;</span></span><br><span class="line"><span class="string">    &lt;/&gt;</span></span><br><span class="line"><span class="string">  )</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">export default Home</span></span><br></pre></td></tr></table></figure>
-<p>这样虽然很方便，但是这样也会导致如果首页没有引入相关插件，但是 webpack 依然会将其打包进 js 中，这样便造成了不必要的加载，造成资源的浪费。而如果我们需要只有使用某些模块才去加载，那么我们就可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> uniqList = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> _ = <span class="keyword">await</span> <span class="keyword">import</span>(<span class="string">&#x27;lodash&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> _.uniq(list)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样引入只有调用相应的方法，才会去加载该模块。</p>
-<h3 id="懒加载组件"><a href="#懒加载组件" class="headerlink" title="懒加载组件"></a>懒加载组件</h3><p>Next.js 也提供了组件懒加载的方法，使用其包装组件后，可以只有在 jsx 代码中使用了该组件，否则不会去加载该组件，可以对加载速度进行一定的优化。<br>比如我们有这样一个组件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Component = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;div&gt;components&lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Component;</span><br></pre></td></tr></table></figure>
-<p>我们使用的时候只需封装一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">import</span> dynamic <span class="keyword">from</span> <span class="string">&#x27;next/dynamic&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Component = dynamic(<span class="keyword">import</span>(<span class="string">&#x27;../components/index&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<p>这样只有使用 <code>&lt;Component /&gt;</code>组件，里面代码才会被只需，不过这一点项目中并不会太常用，因为<code>React.lazy</code>可能会是更好的选择。</p>
-<h2 id="自定义Head"><a href="#自定义Head" class="headerlink" title="自定义Head"></a>自定义Head</h2><p>由于 Next.js 最大的特点还是服务端渲染，用户选用它目的便是利于SEO优化。为了更便于搜索引擎的检索，其还为我们提供 <code>&lt;Head /&gt;</code> 组件，我们可以使用其轻松设置界面的 Head：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Head <span class="keyword">from</span> <span class="string">&#x27;next/head&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Home = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Head&gt;</span><br><span class="line">        &lt;title&gt;www.bipch.cn&lt;/title&gt;</span><br><span class="line">      &lt;/Head&gt;</span><br><span class="line">      ...</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样网站的 Head 便设置完成了。</p>
-<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>项目线上部署的时候是需要经过打包之后，部署打包之后的代码，为了安全不能够部署源代码，Next.js 打包也为我们提供了相关的命令：</p>
+<p>这样便可以实现界面跳转了，但是 <code>&lt;Link /&gt;</code> 组件，只能接收一个组件。除了组件跳转，我们也可以通过 JS 代码进行跳转：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useRouter &#125; <span class="keyword">from</span> <span class="string">&quot;next/router&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> ()=&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> router = useRouter();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      ...</span><br><span class="line">      &lt;button onClick=&#123;<span class="function">()=&gt;</span>&#123;router.push(<span class="string">&#x27;/home&#x27;</span>)&#125;&#125;&gt;home&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="静态生成-or-SSR"><a href="#静态生成-or-SSR" class="headerlink" title="静态生成 or SSR"></a>静态生成 or SSR</h2><p>这一点非常重要，Next 为界面提供了两种渲染的方式：</p>
+<ol>
+<li>静态生成：只有构建(build)时才获取数据，之后每次引用都是构建的数据。</li>
+<li>SSR：每次请求界面都会生成新的 html。</li>
+</ol>
+<p>我们可以为每个界面选择一个渲染方式，两种区别便是获取数据的时机，具体结合实际使用，当然处于性能考虑最优选肯定为 <strong>静态生成</strong> 的方式。</p>
+<h2 id="数据获取"><a href="#数据获取" class="headerlink" title="数据获取"></a>数据获取</h2><p>根据不同的渲染方式获取数据的策略也不同，官网为我们提供了三个获取数据的方法：</p>
+<ol>
+<li><code>getStaticProps</code>(<strong>静态生成</strong>)：构建(build)时获取界面数据。</li>
+<li><code>getStaticPaths</code>(<strong>静态生成</strong>)：构建(build)时根据数据渲染界面动态路由。</li>
+<li><code>getServerSideProps</code>(<strong>SSR</strong>)：每次界面请求都获取数据。</li>
+</ol>
+<h3 id="getStaticProps"><a href="#getStaticProps" class="headerlink" title="getStaticProps"></a>getStaticProps</h3><p>根据介绍很容易发现其作用，为我们的静态生成界面获取数据，默认格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getStaticProps</span>(<span class="params">ctx</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// <span class="doctag">TODO:</span> Logic processing</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接导出该方法即可，方法中可以进行逻辑处理，例如可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getStaticProps</span>(<span class="params">&#123; params &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//? 获取数据</span></span><br><span class="line">  <span class="keyword">const</span> detailedSource = <span class="keyword">await</span> postDetails(params.id);</span><br><span class="line">  <span class="comment">//? 返回数据</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">      detailed: detailedSource</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出在<code>ctx.params</code>可以获取到动态路由的传参，然后利用<code>async/await</code>处理异步逻辑获取数据，最后 return 数据即可，组件中直接通过 props 即可获取到最后的数据。<br>如果您熟悉一些 Next.js 可执行<code>next build</code>然后在<code>.next/server/pages</code>可以找到该文件，例如：</p>
+<p><img src="https://img.bipch.cn/2021/03/09/8a7d8db3f0681.png" alt="静态生成"></p>
+<p>可以看出，当我们 build 时，其自动把含有<code>getStaticProps</code>界面和数据结合形成最终形成 html 静态界面，就算以后数据变化其也不会改变，除非重新 build 生成新的静态 html 界面。</p>
+<h3 id="getStaticPaths"><a href="#getStaticPaths" class="headerlink" title="getStaticPaths"></a>getStaticPaths</h3><p>此方法只适用于含有动态路由的界面，例如一个界面的路径为<code>pages/detailed/[id].jsx</code>，转换为路由为：<code>detailed/***</code>，这是必须有一个<code>getStaticPaths</code>方法，表示那些 <strong>id</strong> 才能访问该界面。<br>默认的格式为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getStaticPaths</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    paths: [</span><br><span class="line">      &#123; <span class="attr">params</span>: &#123; ... &#125; &#125; <span class="comment">// See the &quot;paths&quot; section below</span></span><br><span class="line">    ],</span><br><span class="line">    fallback: <span class="literal">true</span> or <span class="literal">false</span> <span class="comment">// See the &quot;fallback&quot; section below</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其两个熟悉必须按照指定格式返回：</p>
 <ul>
-<li>打包：next build</li>
-<li>运行：next start</li>
+<li><code>paths</code>：表示那些路径可以访问该界面。</li>
+<li><code>fallback</code>：表示如果界面查找不到会不会生成备用界面(一般设置为 false 展示 404 界面)。</li>
 </ul>
-<p>首先执行<code>next build</code>命令对项目进行打包，打包完成后，可以运行<code>next start</code>运行项目，查看打包是否有误。</p>
+<p>例如我们接口返回下面的数据：</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;<span class="attribute">id:</span><span class="string"> 1, title</span>: <span class="string">&#x27;Next入门&#x27;</span>, ....&#125;,</span><br><span class="line">  &#123;<span class="attribute">id:</span><span class="string"> 2, title</span>: <span class="string">&#x27;Next踩坑&#x27;</span>, ....&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>那么只有访问<code>detailed/1</code>和<code>detailed/2</code>才能访问<code>pages/detailed/[id].jsx</code>界面，否则例如<code>detailed/3</code>都跳转至 404 界面，那么我们可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getStaticPaths</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 获取数据</span></span><br><span class="line">  <span class="keyword">const</span> source = <span class="keyword">await</span> posts();</span><br><span class="line">  <span class="keyword">const</span> paths = source.data.map(<span class="function">(<span class="params">post</span>) =&gt;</span> <span class="string">`/detailed/<span class="subst">$&#123;post.id&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">return</span> &#123; paths, <span class="attr">fallback</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行接口获取数据，然后拼接 paths 数据，最后将拼接后的数据返回给 Next 完成，这样只有指定的路由才能访问该界面其余的都会到 404 界面。<br>当然我们也可以使用 build 打包，然后我们可以看到另一个由于的现象，也是在<code>.next/server/pages</code>目录下，我们动态路由 detailed 目录下：</p>
+<p><img src="https://img.bipch.cn/2021/03/09/b8edfa7b95d9f.png" alt=""></p>
+<p>可以清除看到<code>getStaticPaths</code>返回的每个数据都会生成一个 html 静态界面，开始有那味了。</p>
+<h3 id="getServerSideProps"><a href="#getServerSideProps" class="headerlink" title="getServerSideProps"></a>getServerSideProps</h3><p>SSR 渲染时会执行的函数，其使用和上面的<code>getStaticProps</code>非常相似，但由于其是服务端渲染，每次请求都触发而不是静态生成界面，所以其有着更多的属性和配置，可以看下其 <a target="_blank" rel="noopener" href="https://www.nextjs.cn/docs/basic-features/data-fetching#getserversideprops-server-side-rendering">官网的介绍</a> 这里不多介绍了，其使用方式也是老一套。</p>
+<h2 id="自定义Head"><a href="#自定义Head" class="headerlink" title="自定义Head"></a>自定义Head</h2><p>界面的标题一般都需要虽然界面的跳转进行着修改，我们可以使用 <code>&lt;Head /&gt;</code>轻松做到这样的事情：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Head <span class="keyword">from</span> <span class="string">&#x27;next/head&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> Home = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Head&gt;</span><br><span class="line">        &lt;title&gt;首页&lt;/title&gt;</span><br><span class="line">      &lt;/Head&gt;</span><br><span class="line">      ...</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>其部署也是非常的简单粗暴，我们可以看下其 webpack 提供的命令：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;next dev&quot;,</span><br><span class="line">  &quot;start&quot;: &quot;next start&quot;,</span><br><span class="line">  &quot;build&quot;: &quot;next build&quot;,</span><br><span class="line">  &quot;export&quot;: &quot;next build &amp;&amp; next export&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的<code>export</code>命令是本人添加的，正常只有前三个：</p>
+<ul>
+<li><code>dev</code>：项目的运行命令，进行本地开发使用的命令。</li>
+<li><code>start</code>：启动打包之后代码的命令，Next build之后的代码必须依靠 start 才能启动，启动时也必须确保根目录下含有<code>.next</code>文件夹。</li>
+<li><code>build</code>：上面多次提及此命令，其会将项目进行打包，生成<code>.next</code>文件夹，以供 start 命令运行。</li>
+</ul>
+<p>当然除了上述命令，其还未我们推出了<code>export</code>命令，其也必须依靠<code>.next</code>文件夹，运行之后可将<code>.next</code>文件转换为任何地方都可部署的静态文件，默认输出到<code>out</code>文件夹下，我们可以拿其和<code>.next</code>下的文件做一个对比：</p>
+<p><img src="https://img.bipch.cn/2021/03/09/ac4f4b9724ae7.png" alt="out"></p>
+<p>可以看出其完全是静态界面，我们可以任意将其部署到任意服务器上。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>Next 的部署方式也有多种多样。</p>
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><p>官方对这种方式也有 <a target="_blank" rel="noopener" href="https://www.nextjs.cn/docs/deployment#nodejs-%E6%9C%8D%E5%8A%A1%E5%99%A8">介绍</a>，使用起来也是最为方便的一种，直接使用<code>build</code>命令进行打包，然后使用<code>start</code>命令运行其打包的内容，成功之后，我们将端口的安全组进行配置便可以公网访问。</p>
+<h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p>虽然 Node 可以直接托管项目，但是不管项目的管理，还是维护都并不是很方便，所以便有了 Node 的服务管理工具 pm2，其目的便是为了托管 Node 服务。<br>安装成功后，在项目的根目录下执行：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="literal">start</span> npm --name <span class="string">&quot;next&quot;</span> -- run <span class="literal">start</span></span><br></pre></td></tr></table></figure>
+<p>这样也就相当于<code>npm run start</code>了，按照正常逻辑是可以执行的，但是由于 Node 可能无法找到 npm 具体的路径，所以会报出：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Created <span class="keyword">by</span> <span class="built_in">npm</span>, please don<span class="string">&#x27;t edit manually.</span></span><br></pre></td></tr></table></figure>
+<p>该错误表示 npm 具体路径可能无法访问，我们修改其启动命令为：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="literal">start</span> npm-cli.js绝对路径 --name <span class="string">&quot;next&quot;</span> -- run <span class="literal">start</span></span><br></pre></td></tr></table></figure>
+<p>这样便能指定 npm 运行了。</p>
+<h3 id="vercel"><a href="#vercel" class="headerlink" title="vercel"></a>vercel</h3><p>由原班人马打包的部署的工具，同时也是官网比较推荐的，<a href="/vercel">vercel</a>中进行了一些简单的部署介绍，也可以看其 <a target="_blank" rel="noopener" href="https://github.com/vercel/vercel">Github</a> 提供了更详细的部署。</p>
 
     </div>
 
@@ -365,7 +378,6 @@
           
           <div class="post-tags">
               <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
-              <a href="/tags/%E8%84%9A%E6%89%8B%E6%9E%B6/" rel="tag"><i class="fa fa-tag"></i> 脚手架</a>
               <a href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/" rel="tag"><i class="fa fa-tag"></i> 服务端渲染</a>
           </div>
 
@@ -441,7 +453,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSR"><span class="nav-number">1.</span> <span class="nav-text">SSR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">手动创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-next-app"><span class="nav-number">3.</span> <span class="nav-text">create-next-app</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">基础架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">界面跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">5.</span> <span class="nav-text">参数传递</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getInitialProps"><span class="nav-number">6.</span> <span class="nav-text">getInitialProps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90"><span class="nav-number">7.</span> <span class="nav-text">路由钩子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#routeChangeStart"><span class="nav-number">7.1.</span> <span class="nav-text">routeChangeStart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#routerChangeComplete"><span class="nav-number">7.2.</span> <span class="nav-text">routerChangeComplete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beforeHistoryChange"><span class="nav-number">7.3.</span> <span class="nav-text">beforeHistoryChange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#routeChangeError"><span class="nav-number">7.4.</span> <span class="nav-text">routeChangeError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashChangeStart"><span class="nav-number">7.5.</span> <span class="nav-text">hashChangeStart</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hashChangeComplete"><span class="nav-number">7.6.</span> <span class="nav-text">hashChangeComplete</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="nav-number">8.</span> <span class="nav-text">模块懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="nav-number">8.1.</span> <span class="nav-text">懒加载模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E7%BB%84%E4%BB%B6"><span class="nav-number">8.2.</span> <span class="nav-text">懒加载组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Head"><span class="nav-number">9.</span> <span class="nav-text">自定义Head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85"><span class="nav-number">10.</span> <span class="nav-text">打包</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSR"><span class="nav-number">1.</span> <span class="nav-text">SSR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hello-world"><span class="nav-number">2.</span> <span class="nav-text">hello world</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-next-app"><span class="nav-number">3.</span> <span class="nav-text">create-next-app</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">基础架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.</span> <span class="nav-text">界面跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E7%94%9F%E6%88%90-or-SSR"><span class="nav-number">5.</span> <span class="nav-text">静态生成 or SSR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96"><span class="nav-number">6.</span> <span class="nav-text">数据获取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#getStaticProps"><span class="nav-number">6.1.</span> <span class="nav-text">getStaticProps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getStaticPaths"><span class="nav-number">6.2.</span> <span class="nav-text">getStaticPaths</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getServerSideProps"><span class="nav-number">6.3.</span> <span class="nav-text">getServerSideProps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Head"><span class="nav-number">7.</span> <span class="nav-text">自定义Head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85"><span class="nav-number">8.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">9.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node"><span class="nav-number">9.1.</span> <span class="nav-text">Node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">9.2.</span> <span class="nav-text">pm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vercel"><span class="nav-number">9.3.</span> <span class="nav-text">vercel</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +469,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -566,7 +578,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

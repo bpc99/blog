@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -79,6 +79,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -254,7 +255,7 @@
 
       
         <p>在 Vue 中其核心便是<code>数据劫持-数据订阅</code>，数据劫持主要劫持 data 对象的所有 property，并使用 <code>Object.defineProperty</code> 把所有 property 添加  getter/setter 方法。但是由于 Object.defineProperty 不能劫持整个对象，只能劫持对象的一个个属性，并且不能监听数组、对象属性等，所以在 Vue 中数组或者对象属性改变是监听不到的，而<code>$set</code>便是为了解决这些问题。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a>defineProperty</h2><p>Object.defineProperty 方法主要用于劫持 JavaScript 对象，当我们访问相应对象时，会执行相应的逻辑：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> object1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;123&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(object1, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;......&#125;,</span><br><span class="line">  <span class="function"><span class="title">set</span>(<span class="params"></span>)</span>&#123;......&#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">object1.name = <span class="number">77</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(object1.name);</span><br></pre></td></tr></table></figure>
 <p>通过上述代码便监听了 object1 的 name 属性，一旦修改或读取便会调用相应的 getter/setter 方法，一旦数据有修改 defineProperty 便会监听到，执行一系列逻辑。</p>
@@ -396,7 +397,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -505,7 +506,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -84,6 +84,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -259,7 +260,7 @@
 
       
         <p>一个非常流行的基于 Node 平台的 web 开发框架，优点便是非常小，但是扩展性却极其强。非常的干净利落。和另外一个比较的开发框架 Express 作用是相同的。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="koa2-和-express-的区别"><a href="#koa2-和-express-的区别" class="headerlink" title="koa2 和 express 的区别"></a>koa2 和 express 的区别</h2><p>虽然 koa2 和 express 作用是相同的，并且都是原班人马打造的，但是两者使用的区别还是很大的。</p>
 <ol>
@@ -293,7 +294,7 @@
 <p>也可以使用<code>pm2 init</code>生成默认的配置文件 <strong>ecosystem.config.js</strong>，也可以配置启动命令，例如贴出我的简单配置：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  apps: [&#123;</span><br><span class="line">	<span class="comment">// 启动名称</span></span><br><span class="line">    name: <span class="string">&#x27;api&#x27;</span>,</span><br><span class="line">	<span class="comment">// 启动文件</span></span><br><span class="line">    script: <span class="string">&#x27;./src/index.js&#x27;</span>,</span><br><span class="line">	<span class="comment">// 监听改变</span></span><br><span class="line">    watch: <span class="literal">true</span>,</span><br><span class="line">	<span class="comment">// 忽略监听</span></span><br><span class="line">    ignore_watch: [ <span class="string">&quot;node_modules&quot;</span> ]</span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="comment">// 部署配置</span></span><br><span class="line">  deploy: &#123;...&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>这样一个简单的 pm2 配置便完成了，然后使用下面命令启动：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pm2</span> <span class="selector-tag">start</span> <span class="selector-tag">ecosystem</span><span class="selector-class">.config</span><span class="selector-class">.js</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 start ecosystem.<span class="built_in">config</span>.js</span><br></pre></td></tr></table></figure>
 <p>即可完成服务托管。</p>
 
     </div>
@@ -406,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -515,7 +516,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

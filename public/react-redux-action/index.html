@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -80,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -255,7 +256,7 @@
 
       
         <p>虽然 react-redux 非常的强大，但是发送和处理 action，需要很多的冗余代码，如果项目过多冗余代码肯定会对打包和运行速度有所影响，这时我们便要对其代码进行简写和封装，为了避免重复的轮子，一般需要网上进行查找，而 redux-action 便可以很好的对 action 进行代码的简写。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="传统的Redux"><a href="#传统的Redux" class="headerlink" title="传统的Redux"></a>传统的Redux</h2><p>为了更方便其对 redux 的封装，我们将其和原本的代码进行比较。</p>
 <h3 id="默认的-Redux-代码"><a href="#默认的-Redux-代码" class="headerlink" title="默认的 Redux 代码"></a>默认的 Redux 代码</h3><p>创建 actions：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> addGame = <span class="function">(<span class="params">game</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type: <span class="string">&#x27;ADD_GAME&#x27;</span>,</span><br><span class="line">        game</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -395,7 +396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -504,7 +505,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -80,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -255,7 +256,7 @@
 
       
         <p>导航守卫在日常开发中经常会被使用到，比如一个界面需要登陆之后或需要某种权限才能进行访问，这样我们可以很简单的使用导航守卫实现。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h2><p>vue 的导航守卫主要分为 3 种，分别为：<code>全局导航守卫</code>、<code>路由导航守卫</code>、<code>组件导航守卫</code>，而最为常用的便是全局导航守卫中的<code>beforeEach</code>，每次界面的跳转都会经过里面的逻辑，只有通过才会进行跳转。<br>例如一些组件需要登陆才能进行访问，否则进入登陆或者401界面，那么用 vue-router 可以这么写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> Router(&#123;</span><br><span class="line">    mode: <span class="string">&#x27;history&#x27;</span>,</span><br><span class="line">    routes: baseRouter</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="comment">// <span class="doctag">TODO:</span> Landing logic</span></span><br><span class="line">	next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样每次界面的跳转都会执行里面的逻辑，只有调用<code>next()</code>才能跳转，否则我们可以为其跳转到其它界面。<br>那么 react-router 为什么不提供相应的 api 呢？其实是因为设计理念的区别，React 会选择让用户自己封装相应的功能，路由守卫功能在很久前也被人提出了<a target="_blank" rel="noopener" href="https://github.com/ReactTraining/react-router/issues/4962">react-router路由拦截官方说明</a>，而作者更希望保证插件的灵活性，让用户自己封装相应代码的功能。</p>
@@ -307,8 +308,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/react-next/" rel="prev" title="React-Next.js 介绍">
-      <i class="fa fa-chevron-left"></i> React-Next.js 介绍
+    <a href="/react-next/" rel="prev" title="Next.js">
+      <i class="fa fa-chevron-left"></i> Next.js
     </a></div>
       <div class="post-nav-item">
     <a href="/linux-pm2-nginx-Koa2/" rel="next" title="pm2 + Nginx 部署 Koa2">
@@ -389,7 +390,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -498,7 +499,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

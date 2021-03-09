@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -80,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -255,7 +256,7 @@
 
       
         <p><strong>call</strong>、<strong>apply</strong>、<strong>bind</strong> 三个函数在 JS 中都可以用来修改函数的上下文对象，并且三个方法作用相同，但使用方式却各不相同。那么它们的区别是什么？以及怎么实现的呢？</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="相同和区别"><a href="#相同和区别" class="headerlink" title="相同和区别"></a>相同和区别</h2><h3 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h3><p>它们都是用来改变函数的上下文，也就是<code>this</code>指向。</p>
 <h3 id="不同"><a href="#不同" class="headerlink" title="不同"></a>不同</h3><p><code>fn.call</code>：立即调用，返回函数指向结果，<code>this</code>指向第一个参数，后面可以有更多的参数，并且这些都是 fn 函数的参数。<br><code>fn.apply</code>：立即调用，返回函数指向结果，<code>this</code>指向第一个参数，第二个参数是个数组，这个数组内容是 fn 函数的参数。<br><code>fn.bind</code>：不会立即调用，而是返回一个绑定后的新函数，一个典型的 <code>柯里化</code> 函数。</p>
 <h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>如果一个函数接收多个参数，我们可以把这个函数转化为每次只接收一部分参数的多次调用形式，这就是函数的柯里化。<br>听着定义很难懂，但是我们看代码就很简单了。首先如果我们有下面的函数：</p>
@@ -398,7 +399,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -507,7 +508,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

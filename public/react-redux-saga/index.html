@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -82,6 +82,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -257,7 +258,7 @@
 
       
         <p><code>redux-saga</code> 是一个用于管理应用程序副作用的 redux 中间件，它的目标是让副作用集中处理，然后方便以后的维护和扩展。它和其他解决异步中间件不同，它像进程一样可以主应用程序启动，暂停和取消，也能访问完整的 redux state、dispatch、redux action。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p>redux-saga 通过监听 action，只需我们发送了指定的 action，便会进行拦截。转换为流程图如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/bpc99/assets@master/redux/flow/redux-saga.jpg" alt="redux-saga流程图.JPG"></p>
 <p>基本可以把 saga 分解为 Worker 和 Watcher：<code>Saga = Worker + Watcher</code>。</p>
@@ -420,7 +421,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -529,7 +530,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

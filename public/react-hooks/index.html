@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -80,6 +80,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -255,7 +256,7 @@
 
       
         <p>hooks 是 React 16.8 引入的新特性，它可以使我们在不编写 class 组件的情况下可以去使用 state、生命周期函数、 和其他 React 功能。并且 hooks 可以从各个组件中提取状态逻辑，以便于代码的复用，这样组件之间共享数据就变得很简单。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="为什么使用-hooks"><a href="#为什么使用-hooks" class="headerlink" title="为什么使用 hooks"></a>为什么使用 hooks</h2><p>项目组件起初很简单，但随着状态、逻辑、副作用的增多变为难以控制的混乱状态，每一个生命周期都包含着毫不相关逻辑代码的混合。比如我们的组件可能会在 <code>componentDidMount</code> 、<code>componentDidUpdate</code> 周期中获取处理数据，但是在同一个 <code>componentDidMount</code> 中还包含着其他的逻辑比如，注册事件的监听，最后需要在 <code>componentWillUnmount</code> 清除。这样我们毫不相连的代码就结合在了一起。这样就会导致一些逻辑的不一致。而 <strong>Hook 将组件中相互关联的部分拆分成更小的函数。</strong></p>
 <h2 id="State-Hook"><a href="#State-Hook" class="headerlink" title="State Hook"></a>State Hook</h2><p>state hook 提供了在 function 组件中使用 state。并且可以抽取相同的 state 状态和逻辑是数据得到更好的复用。<br>下面举一个简单的例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123;useState&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 赋值，初始值 0</span></span><br><span class="line">  <span class="keyword">const</span> [count, setCount] = useState(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;header className=<span class="string">&quot;App-header&quot;</span>&gt;</span><br><span class="line">        &lt;p&gt;num: &#123;count&#125;&lt;/p&gt;</span><br><span class="line">        &lt;p onClick=&#123;<span class="function">() =&gt;</span> setCount(<span class="function"><span class="params">state</span> =&gt;</span> state + <span class="number">1</span>)&#125;&gt;+&lt;/p&gt;</span><br><span class="line">        &lt;p onClick=&#123;<span class="function">() =&gt;</span> setCount(<span class="function"><span class="params">state</span> =&gt;</span> state - <span class="number">1</span>)&#125;&gt;-&lt;/p&gt;</span><br><span class="line">      &lt;/header&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -429,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -538,7 +539,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

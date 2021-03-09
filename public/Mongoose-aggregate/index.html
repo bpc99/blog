@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -79,6 +79,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -254,7 +255,7 @@
 
       
         <p>在 MongoDB 中，聚合(<code>aggregate</code>)主要可以用于多个表之间的联合查询，并且可以进行求和、求平均值、最大与最小值等，在项目中使用也是非常的方便，下面主要是一些常用的操作，更多详细的可以看其<a target="_blank" rel="noopener" href="https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline/">官方文档</a>。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>日常开发中经常这些场景，比如文章都有类别字段，而一个类别可以对应多个文章，我们如果需要统计每个类别下的所有文章便可以通过<code>aggregate</code>进行查询，或者我们需要统计每个时间段发布的文章做个归档，也可以使用其来完成。</p>
 <h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>常规的定义为：<code>db.collection.aggregate(pipeline, options)</code><br>主要接收两个参数，其中 <strong>pipeline</strong> 表示数据联立等操作，而 <strong>options</strong> 则为数据库的配置，这里就不多说该属性了。而 <strong>pipeline</strong> 常用的属性有：</p>
@@ -408,7 +409,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -517,7 +518,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

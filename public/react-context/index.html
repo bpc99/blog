@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -79,6 +79,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -254,7 +255,7 @@
 
       
         <p>由于 React 的数据流都是 <strong>单向传递</strong> 的，只能由父级组件定义数据子组件使用，但是只能嵌套一层，如果涉及到多层嵌套，便只能层层向下传递。而 <code>Context</code> 的存在提供了另外一种数据的传输方式，可以在父级定义上下文对象，所有子组件都能获取到上下文对象，从而避免了在每一个层级手动的传递 props 属性。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>我们可以看下官网提供的 <a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/context.html#gatsby-focus-wrapper">资料</a>，其为我们提供了很多常用的方法。</p>
 <h3 id="React-createContext"><a href="#React-createContext" class="headerlink" title="React.createContext"></a>React.createContext</h3><p>我们需要在父组件中使用 <code>React.createContext(defaultValue)</code> 方法创建 <code>Context</code>对象，defaultValue 表示默认需要共享的数据。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="comment">// 通过createContext方法创建</span></span><br><span class="line"><span class="keyword">const</span> &#123; Provider, Consumer &#125; = React.createContext();</span><br></pre></td></tr></table></figure>
@@ -388,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,7 +498,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

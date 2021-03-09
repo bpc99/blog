@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.1.1">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -84,6 +84,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="Blog" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -261,7 +262,7 @@
         <p>因为自己需要空闲的时候总结一些个人项目等，之前通过 hexo 搭建的博客，但是接触了 koa2 决定使其搭建一个后台接口服务，为前端界面提供相应数据。</p>
 <p>本篇主要讲解客户端一键将 koa2 项目部署到服务器，服务器端使用 pm2 管理 koa2 服务及 Nginx 反向代理服务到另一个接口。</p>
 <p>首先网站大致为：koa2 默认占用本地<code>6060</code>端口，然后通过 nginx 反向代理到<code>80</code>端口，同时 nginx 将<code>80</code>端口转发到<code>443</code>强制使用 https 协议。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>本人服务器系统为<code>CentOS7.0</code>，系统不同执行的命令也会有些许差别。部署之前要安装必备的软件：<code>Node</code>、<code>npm</code>、<code>pm2</code>、<code>Nginx</code>。安装的方法这里就不多说了，其方式有太多。</p>
 <p><strong>下面的配置都是为了服务器安全，如果不需要可以不用配置。后面用户直接设置为 root 即可</strong>。</p>
@@ -322,7 +323,7 @@
 <p>在开始部署之前，我们需要确保本地和 Github 私人仓库代码的同步，先将本地文件同步到 Github：</p>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 和仓库代码同步</span></span><br><span class="line">git pull</span><br><span class="line"><span class="meta"># 代码添加到暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta"># 提交暂存区到仓库区</span></span><br><span class="line">git commit -m <span class="string">&quot;update ecosystem&quot;</span></span><br><span class="line"><span class="meta"># 传本地指定分支到远程仓库</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>这样提交完成后，在本地的根目录下执行命令，将代码向生产环境下部署：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pm2</span> <span class="selector-tag">deploy</span> <span class="selector-tag">ecosystem</span><span class="selector-class">.config</span><span class="selector-class">.js</span> <span class="selector-tag">production</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 deploy ecosystem<span class="selector-class">.config</span><span class="selector-class">.js</span> production</span><br></pre></td></tr></table></figure>
 <p>如果项目部署成功，配置文件中的<code>post-deploy</code>中的命令会自动执行(当然运行速度慢了可以将 npm 切换为 cnpm 或 yarn)，那么便可以看出 pm2 给出的提示：</p>
 <figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">PM2</span>][<span class="symbol">WARN</span>] <span class="symbol">Applications</span> api not running, starting...</span><br><span class="line">[<span class="symbol">PM2</span>][<span class="symbol">WARN</span>] <span class="symbol">Environment</span> [production] is not defined in process file</span><br><span class="line">[<span class="symbol">PM2</span>] <span class="symbol">App</span> [api] launched (<span class="number">1</span> instances)</span><br><span class="line">┌─────┬────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐</span><br><span class="line">│ id  │ name   │ namespace   │ version │ mode    │ pid      │ uptime │ ?    │ status    │ cpu      │ mem      │ user     │ watching │</span><br><span class="line">├─────┼────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤</span><br><span class="line">│ <span class="number">0</span>   │ api    │ default     │ <span class="number">1.0</span><span class="number">.0</span>   │ fork    │ <span class="number">9438</span>     │ <span class="number">0</span>s     │ <span class="number">0</span>    │ online    │ <span class="number">0</span><span class="comment">%       │ 9.1mb    │ bpc      │ disabled │</span></span><br><span class="line">└─────┴────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘</span><br><span class="line">  ○ successfully deployed origin/master</span><br><span class="line">--&gt; <span class="symbol">Success</span></span><br></pre></td></tr></table></figure>
 
@@ -452,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -561,7 +562,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.4k字</span>
+  <span class="post-count">博客全站共51.5k字</span>
 </div>
 -->
         

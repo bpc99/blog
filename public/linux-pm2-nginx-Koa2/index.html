@@ -31,8 +31,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.bipch.cn/2021/02/06/c05da0bf0d3e6.png">
 <meta property="article:published_time" content="2021-01-30T18:10:03.000Z">
-<meta property="article:modified_time" content="2021-03-08T08:01:27.902Z">
+<meta property="article:modified_time" content="2021-03-08T19:49:23.509Z">
 <meta property="article:author" content="Xiaopc767d">
+<meta property="article:tag" content="项目部署">
 <meta property="article:tag" content="Nginx">
 <meta property="article:tag" content="Koa2">
 <meta property="article:tag" content="pm2">
@@ -280,7 +281,7 @@
 <h3 id="文件读写权限-可选"><a href="#文件读写权限-可选" class="headerlink" title="文件读写权限(可选)"></a>文件读写权限(可选)</h3><p>因为我们自定义了用户进行管理，其并不会向 root 一样有着所有文件的读写权限，我们需要对指定路径设置新用户的访问权限。<br>比如我在服务器中将最终代码放置在 <strong>/var/api/blog</strong> 路径下，那么我们通过下面方式分配权限：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown -R bpc <span class="regexp">/var/</span>api</span><br><span class="line">chmod -R <span class="number">755</span> <span class="regexp">/var/</span>api</span><br></pre></td></tr></table></figure>
 <p>这样通过<code>chown</code>命令分配指定用户权限，通过<code>chmod</code>分配给文件夹详细权限(755表示拥有者有读、写、执行权限；而属组用户和其他用户只有读、执行权限)。</p>
-<h2 id="Github-仓库"><a href="#Github-仓库" class="headerlink" title="Github 仓库"></a>Github 仓库</h2><p>客户和服务器端同步代码需要建立一个 github 的私人仓库，我的命名为 react_blog_api。</p>
+<h2 id="SSH-上传代码"><a href="#SSH-上传代码" class="headerlink" title="SSH 上传代码"></a>SSH 上传代码</h2><p>客户和服务器端同步代码需要建立一个 github 的私人仓库，我的命名为 react_blog_api。</p>
 <h3 id="设置密钥"><a href="#设置密钥" class="headerlink" title="设置密钥"></a>设置密钥</h3><p>由于需要使用 ssh 读写私人仓库内容，所以需要配置私人仓库中的 <strong>Deploy keys</strong>。这就需要我们在客户端和服务器端生成<code>id_rsa.pub</code>(默认名称)文件，并查询其内容：</p>
 <p>首先我们查看是否已经生成该文件：</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~<span class="regexp">/.ssh/i</span>d_rsa.pub  <span class="comment"># cat 命令查看文件</span></span><br></pre></td></tr></table></figure>
@@ -357,6 +358,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag"><i class="fa fa-tag"></i> 项目部署</a>
               <a href="/tags/Nginx/" rel="tag"><i class="fa fa-tag"></i> Nginx</a>
               <a href="/tags/Koa2/" rel="tag"><i class="fa fa-tag"></i> Koa2</a>
               <a href="/tags/pm2/" rel="tag"><i class="fa fa-tag"></i> pm2</a>
@@ -368,12 +370,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Mongoose-aggregate/" rel="prev" title="Mongoose聚合查询">
-      <i class="fa fa-chevron-left"></i> Mongoose聚合查询
+    <a href="/react-router/" rel="prev" title="react导航守卫">
+      <i class="fa fa-chevron-left"></i> react导航守卫
     </a></div>
       <div class="post-nav-item">
-    <a href="/linux-top/" rel="next" title="Linux top">
-      Linux top <i class="fa fa-chevron-right"></i>
+    <a href="/hexo-aliyun/" rel="next" title="Hexo多种部署方式">
+      Hexo多种部署方式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -434,7 +436,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7-%E5%8F%AF%E9%80%89"><span class="nav-number">1.1.</span> <span class="nav-text">创建新用户(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-root-%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE-ssh-%E5%8F%AF%E9%80%89"><span class="nav-number">1.2.</span> <span class="nav-text">关闭 root 用户访问 ssh(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90-%E5%8F%AF%E9%80%89"><span class="nav-number">1.3.</span> <span class="nav-text">文件读写权限(可选)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">Github 仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%86%E9%92%A5"><span class="nav-number">2.1.</span> <span class="nav-text">设置密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">提交代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pm2-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">pm2 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">同步代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">部署代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">4.</span> <span class="nav-text">Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-https"><span class="nav-number">4.1.</span> <span class="nav-text">配置 https</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7-%E5%8F%AF%E9%80%89"><span class="nav-number">1.1.</span> <span class="nav-text">创建新用户(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-root-%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE-ssh-%E5%8F%AF%E9%80%89"><span class="nav-number">1.2.</span> <span class="nav-text">关闭 root 用户访问 ssh(可选)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90-%E5%8F%AF%E9%80%89"><span class="nav-number">1.3.</span> <span class="nav-text">文件读写权限(可选)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">SSH 上传代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%AF%86%E9%92%A5"><span class="nav-number">2.1.</span> <span class="nav-text">设置密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">提交代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pm2-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">pm2 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">同步代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.</span> <span class="nav-text">部署代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">4.</span> <span class="nav-text">Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-https"><span class="nav-number">4.1.</span> <span class="nav-text">配置 https</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -463,7 +465,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -559,7 +561,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.5k字</span>
+  <span class="post-count">博客全站共51.4k字</span>
 </div>
 -->
         

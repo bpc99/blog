@@ -1,6 +1,6 @@
 ---
 title: MongoDB安装和常用方法
-date: 2021-01-26 18:56:17
+date: 2020-10-20 14:20:30
 subtitle: linux-software
 tags:
   - MongoDB

@@ -6,6 +6,7 @@ tags:
   - Nginx
   - Koa2
   - pm2
+  - 项目部署
 categories: [Nginx]
 ---
 
@@ -61,7 +62,7 @@ chmod -R 755 /var/api
 ```
 这样通过`chown`命令分配指定用户权限，通过`chmod`分配给文件夹详细权限(755表示拥有者有读、写、执行权限；而属组用户和其他用户只有读、执行权限)。
 
-## Github 仓库
+## SSH 上传代码
 客户和服务器端同步代码需要建立一个 github 的私人仓库，我的命名为 react_blog_api。
 
 ### 设置密钥

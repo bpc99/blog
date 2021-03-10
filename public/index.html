@@ -289,6 +289,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.bipch.cn/use-github-styles/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
+      <meta itemprop="name" content="Xiaopc767d">
+      <meta itemprop="description" content="正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/use-github-styles/" class="post-title-link" itemprop="url">Github主页美化</a>
+        </h2>
+
+        <div class="post-meta">
+		  
+		  
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-10 13:22:15" itemprop="dateCreated datePublished" datetime="2021-03-10T13:22:15+08:00">2021-03-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span class="post-meta-item-text">本文字数</span>
+              837
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span class="post-meta-item-text">阅读时长 ≈ 3分钟</span>
+            </span>
+		  
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Github 默认展示仓库和提交信息等字段，却没有汇总或一些自定义连接功能，不过其提供了创建同名仓库的形式自定义主页。比如我的用户名为 bpc99，那么我们只需新建一个相同名的仓库即可。下面便通过此仓库中的 README 文件，自定义 Github 的主页。<br>那么 README 能玩出什么花样呢？</p>
+<h2 id="装修效果"><a href="#装修效果" class="headerlink" title="装修效果"></a>装修效果</h2><p>首先贴出本人的个人主页修改后的样式：</p>
+<p><img src="https://img.bipch.cn/2021/03/10/627185a4aa616.png" alt=""></p>
+<h2 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h2><p>最上面中的数据统计和评分都是依靠外部的一个服务，我们只需要调用相应服务即可：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">&quot;https://github-readme-stats.vercel.app/api?username=bpc99&amp;show_icons=true&quot;</span> <span class="attribute">alt</span>=<span class="string">&quot;logo&quot;</span> <span class="attribute">height</span>=<span class="string">&quot;160&quot;</span> <span class="attribute">align</span>=<span class="string">&quot;right&quot;</span> <span class="attribute">style</span>=<span class="string">&quot;margin: 5px; margin-bottom: 20px;&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>当然需要把上面的<code>username</code>字段修改为自己 Github 的用户名，这样才能正确的统计自己本人的仓库信息。</p>
+<h2 id="自动更新博客列表"><a href="#自动更新博客列表" class="headerlink" title="自动更新博客列表"></a>自动更新博客列表</h2><p>例如上面最终展示的 5 条最先的文章，并不是写死的，而是由 Github 每个一段时间自动统计文章中最新的 5 篇。<br>当然如果你也需要该功能，可以将 README 添加下面的代码：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## Latest Blog Posts</span></span><br><span class="line"></span><br><span class="line">&lt;!-- BLOG-POST-LIST:START --&gt;</span><br><span class="line">&lt;!-- BLOG-POST-LIST:END --&gt;</span><br></pre></td></tr></table></figure>
+<p>其实只是一个标题，和一些代码的注释声明，之后 Github 统计的数据会自动统计到注释代码块中，也就是<code>可以通过修改注释的位置，可以将其放置到任意位置</code>。<br>当然我们还需要实现一个<code>每段时间自动统计的功能</code>，该功能才是重中之重，我们需要 Github 的 Github Action 来进行实现。</p>
+<p>点击下面的按钮，可进行添加操作：</p>
+<p><img src="https://img.bipch.cn/2021/03/10/3740e196f980b.png" alt=""></p>
+<p>然后我们将下面内容粘贴进去：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Blog</span> <span class="string">Posts</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="comment"># Run workflow automatically</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="comment"># Runs every hour, on the hour</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 * * * *&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">update-readme-with-blog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Update</span> <span class="string">this</span> <span class="string">repo&#x27;s</span> <span class="string">README</span> <span class="string">with</span> <span class="string">latest</span> <span class="string">blog</span> <span class="string">posts</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">gautamkrishnar/blog-post-workflow@master</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="comment"># comma-separated list of RSS feed urls</span></span><br><span class="line">          <span class="attr">feed_list:</span> <span class="string">&quot;https://bipch.cn/atom.xml&quot;</span></span><br></pre></td></tr></table></figure>
+<p>当然上面的<code>cron: &quot;0 * * * *&quot;</code>表示多长时间执行一次，这里为每小时 0 分的时候去执行，所以执行整点我们才能看到结果，当然事件可能有几分钟的延迟，所以耐心等待一段时间即可。<br>另一个关键的字段为<code>feed_list</code>文章的 RSS 订阅地址，多个的话后面使用逗号分割，所以使用该功能一定要拥有文章的 RSS 地址，如果并没有或者忘记都不能使用该功能，由于本人博客是使用 Hexo 生成的，所以根据文章生成 RSS 非常简单，当然如果是其它的肯定也有方法，根据技术的不同，生成的方式也不会相同，这里就不多叙述了，大家可以去网上查阅。</p>
+<h2 id="完整源代码"><a href="#完整源代码" class="headerlink" title="完整源代码"></a>完整源代码</h2><p>当然上面只是一些简单的功能，但是其是 Mackdown 类型的文档，我们可以任意添加一些自己需要的代码。</p>
+<p>最后贴出本人的仓库地址：<a target="_blank" rel="noopener" href="https://github.com/bpc99/bpc99">https://github.com/bpc99/bpc99</a></p>
+<p>大家也可以根据自己需求去添加，最后祝大家都有一个高大上的 Github 主页。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.bipch.cn/vercel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1015,97 +1115,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.bipch.cn/error-first/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://img.bipch.cn/2021/02/19/02bc651a726c5.jpg">
-      <meta itemprop="name" content="Xiaopc767d">
-      <meta itemprop="description" content="正因为有忘也忘不了的回忆，才会变得坚强，这就是所谓的成长吧！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/error-first/" class="post-title-link" itemprop="url">Error-first</a>
-        </h2>
-
-        <div class="post-meta">
-		  
-		  
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-17 01:50:47" itemprop="dateCreated datePublished" datetime="2021-01-17T01:50:47+08:00">2021-01-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index"><span itemprop="name">Node</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span class="post-meta-item-text">本文字数</span>
-              336
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span class="post-meta-item-text">阅读时长 ≈ 1分钟</span>
-            </span>
-		  
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在 Node 这么火的今天，其成功离不开内部高效的事件循环以及异步I/O，整个 Node 的设计从上到下都遵循着异步的概念。而 Node 处理异步指定的标准便是<code>error-first</code>也被称之为<code>错误优先</code>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/error-first/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1177,20 +1186,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1286,7 +1295,7 @@
 <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.5k字</span>
+  <span class="post-count">博客全站共52.4k字</span>
 </div>
 -->
         

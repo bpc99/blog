@@ -176,16 +176,6 @@
               {{ wordcount(post.content) }}
             </span>
           {%- endif %}
-		  
-		  {%- if theme.post_wordcount.min2read %}
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span class="post-meta-item-text">{{ __('post.reading') }} ≈ {{ min2read(post.content) }}分钟</span>
-            </span>
-          {%- endif %}
-		  
         </div>
       </header>
     {%- endif %}

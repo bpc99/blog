@@ -1,4 +1,0 @@
-_posts：博文文件夹
-about：关于文件夹
-categories：分类文件夹
-tages：标签文件夹

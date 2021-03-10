@@ -255,7 +255,7 @@ post_wordcount:
   #字数统计
   wordcount: true
   #预览时间
-  min2read: true
+  #min2read: true
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
   separated_meta: true

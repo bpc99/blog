@@ -3,7 +3,7 @@ title: Linux top
 date: 2021-01-27 15:23:10
 subtitle: linux-top
 tags:
-  - Linux
+  - 命令
 categories: [Linux]
 ---
 

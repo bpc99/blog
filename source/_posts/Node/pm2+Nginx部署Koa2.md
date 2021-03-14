@@ -7,7 +7,7 @@ tags:
   - Koa2
   - pm2
   - 项目部署
-categories: [Nginx]
+categories: [Node]
 ---
 
 因为自己需要空闲的时候总结一些个人项目等，之前通过 hexo 搭建的博客，但是接触了 koa2 决定使其搭建一个后台接口服务，为前端界面提供相应数据。

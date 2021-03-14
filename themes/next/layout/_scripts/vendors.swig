@@ -1,21 +1,21 @@
 {%- set js_vendors = {} %}
-{%- set js_vendors = js_vendors | attr('anime', 'anime.min.js') %}
+{%- set js_vendors = js_vendors | attr('anime', '{{ theme.vendors.anime }}') %}
 
 {%- if theme.pjax %}
-  {%- set js_vendors = js_vendors | attr('pjax', 'pjax/pjax.min.js') %}
+  {%- set js_vendors = js_vendors | attr('pjax', '{{ theme.vendors.pjax }}') %}
 {%- endif %}
 
 {%- if theme.fancybox %}
-  {%- set js_vendors = js_vendors | attr('jquery', '//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js') %}
-  {%- set js_vendors = js_vendors | attr('fancybox', '//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js') %}
+  {%- set js_vendors = js_vendors | attr('jquery', '{{ theme.vendors.jquery }}') %}
+  {%- set js_vendors = js_vendors | attr('fancybox', '{{ theme.vendors.fancybox }}') %}
 {%- endif %}
 
 {%- if theme.mediumzoom %}
-  {%- set js_vendors = js_vendors | attr('mediumzoom', '//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js') %}
+  {%- set js_vendors = js_vendors | attr('mediumzoom', '{{ theme.vendors.mediumzoom }}') %}
 {%- endif %}
 
 {%- if theme.lazyload %}
-  {%- set js_vendors = js_vendors | attr('lazyload', '//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js') %}
+  {%- set js_vendors = js_vendors | attr('lazyload', '{{ theme.vendors.lazyload }}') %}
 {%- endif %}
 
 {%- if theme.pangu %}
@@ -23,8 +23,8 @@
 {%- endif %}
 
 {%- if theme.motion.enable %}
-  {%- set js_vendors = js_vendors | attr('velocity', 'velocity/velocity.min.js') %}
-  {%- set js_vendors = js_vendors | attr('velocity_ui', 'velocity/velocity.ui.min.js') %}
+  {%- set js_vendors = js_vendors | attr('velocity', '{{ theme.vendors.velocity }}') %}
+  {%- set js_vendors = js_vendors | attr('velocity_ui', '{{ theme.vendors.velocity_ui }}') %}
 {%- endif %}
 
 {%- if theme.canvas_nest.enable %}

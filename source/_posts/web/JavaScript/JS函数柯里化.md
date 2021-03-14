@@ -1,6 +1,6 @@
 ---
 title: 函数柯里化
-subtitle: js-currying
+subtitle: currying
 tags:
   - JavaScript
   - 柯里化

@@ -1,19 +1,19 @@
 ---
-title: XSS
+title: XSS 攻击
 subtitle: XSS
 date: 2020-12-10 10:35:40
 tags:
   - 跨域脚本攻击
 categories: [漏洞攻击]
 ---
-**XSS** 是 **跨域脚本攻击** 的简称，表示有人不怀好心在 Web 界面中插入恶意的 Script 代码，用户浏览界面的时候，恶意嵌入的 Web 里面的恶意 Script 就会被执行，从而达到恶意攻击用户的目的。
+**XSS** 是 **跨域脚本攻击** 的简称，若有人不怀好心在 Web 界面中插入恶意的 Script 代码，用户浏览指定界面后，恶意嵌入的 Script 代码就会被执行，从而达到恶意攻击用户的目的。
 
 <!-- more -->
 
 ## XSS攻击方式
 恶意插入 JavaScript 代码，主要在一些简单的留言板、富文本展示等界面，如果有用户在代码中恶意添加下面一行代码：
 ```html
-<script>alert(“hey!you are attacked”)</script>
+<script>alert("hey!you are attacked")</script>
 ```
 那么后面解析到这一句话的时候，Script 代码便会被执行到，界面便会出现弹框，这便是简单的 XSS 攻击方式。
 

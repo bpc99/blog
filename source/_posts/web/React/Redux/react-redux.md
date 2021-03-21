@@ -25,7 +25,9 @@ Redux 可以用这三个基本原则来描述：
 1. `单一数据源`：整个项目有且只有一个Store。
 2. `State是只读的`：唯一改变State的方法就是触发`action`，action是用来描述发生事件的普通对象。
 3. `使用纯函数进行修改`：Reducer 根据 action 覆盖 state。Reducer 必须是一个纯函数，它接收先前的 state 和 action，并返回新的 state。
+
 ## API
+
 ### Store
 主要用于维护应用中的所有的 **state树** 的对象，改变其的唯一方法只能依靠 `dispatch` 发送 action 对象。
 但有一点需要注意：**整个项目有且只能有一个 Store**，创建时需要通过 `createStore` 方法，生成 Store：

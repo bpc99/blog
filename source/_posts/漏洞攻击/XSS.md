@@ -1,6 +1,6 @@
 ---
 title: XSS
-subtitle: XSS
+subtitle: xss
 date: 2020-12-10 10:35:40
 tags:
   - 跨域脚本攻击

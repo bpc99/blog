@@ -3,8 +3,9 @@ title: call、apply、bind区别
 subtitle: call-apply-bind
 date: 2019-12-13 11:48:10
 tags:
-  - JavaScript
-  - 柯里化
+  - call
+  - apply
+  - bind
 categories: [web]
 ---
 **call**、**apply**、**bind** 三个函数在 JS 中都可以用来修改函数的上下文对象，并且三个方法作用相同，但使用方式却各不相同。那么它们的区别是什么？以及怎么实现的呢？

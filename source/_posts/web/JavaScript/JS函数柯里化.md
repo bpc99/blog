@@ -2,7 +2,6 @@
 title: 函数柯里化
 subtitle: currying
 tags:
-  - JavaScript
   - 柯里化
 categories: [web]
 date: 2019-10-27 15:36:34

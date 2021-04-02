@@ -3,7 +3,7 @@ title: JavaScript原型链
 date: 2021-03-11 16:19:23
 subtitle: prototype-chain
 tags:
-  - JavaScript
+  - 原型链
 categories: [web]
 ---
 JavaScript 中数据类型基本分为基本类型与引用类型，基本类型包括 String、Number、Boolean、undefined、Null以及 ES6 中新提出的 Symbol，引用类型多为一些对象，比如 Object、Array、Function 等，在 ES6 中又添加了一个新的引用对象 **class** 对象，虽然使用方式与其它的语言十分的相似，但其内部还是通过 `Function` 实现，只是另外借助了`原型对象`、`原型链`两个概念。

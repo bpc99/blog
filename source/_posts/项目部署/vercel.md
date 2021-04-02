@@ -3,8 +3,8 @@ title: vercel
 date: 2021-03-09 17:29:56
 subtitle: vercel
 tags:
-  - 项目部署
-categories: [web]
+  - vercel
+categories: [项目部署]
 ---
 当项目完成后，最重要的便是部署了，一般需要挑选一个访问速度比较快的、花钱比较少的、部署比较方便...这些因素同时考虑比较好用的便是  GitHub Pages 了，但是其国内一般访问较慢，如果比较着重考虑国内访问的话，可以考虑另一款和 Github 比较契合的工具 [Vercel](https://github.com/vercel/vercel)。
 

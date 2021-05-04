@@ -37,7 +37,7 @@
   {%- endif %}
   
   {%- if theme.footer.beian.enable %}
-    <span>{{theme.footer.beian.icp}}</span>
+    <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">{{theme.footer.beian.icp}}</a>
 	{%- if theme.footer.beian.gongan_icon_url %}
 	  <img src="{{ theme.footer.beian.gongan_icon_url }}" style="display: inline-block;">
 	{%- endif %}
